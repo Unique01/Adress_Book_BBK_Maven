@@ -15,10 +15,11 @@
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="contactValidation" />
+		<property name="basename" value="validation" />
 	</bean>
 	
  	<bean id="ContactValidator" class="validator.ContactValidator" />
+ 	<bean id="AdressValidator" class="validator.AdressValidator" />
  
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

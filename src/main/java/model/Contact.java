@@ -2,12 +2,17 @@ package model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Contact {
 
 	private String name;
 	private String surname;
 	private String email;
+	
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date birthDate;
+	
 	boolean deleted = false;
 	
 

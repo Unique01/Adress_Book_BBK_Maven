@@ -18,7 +18,7 @@
 			Email <form:errors path="email" cssClass="error"/><br />
 			<form:input path="email"/><br /><br />
 	 
-			Date de naissance (dd-mm-yyyy) <form:errors path="birthDate" cssClass="error"/><br />
+			Date de naissance (dd/mm/yyyy) <form:errors path="birthDate" cssClass="error"/><br />
 			<form:input path="birthDate"/><br /><br />
 	 
 			<input type="submit" value="Valider">
