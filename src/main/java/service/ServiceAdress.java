@@ -14,19 +14,19 @@ public class ServiceAdress {
 		
 	}
 	
-	public void addAdress(Adress adress) {
+	public static void addAdress(Adress adress) {
 		
 		DAOAdress.add(adress);
 		
 	}
 	
-	public void deleteAdress(Adress adress) {
+	public static void deleteAdress(Adress adress) {
 		
 		DAOAdress.delete(adress);
 		
 	}
 	
-	public void updateAdress(Adress adress) {
+	public static void updateAdress(Adress adress) {
 		
 		DAOAdress.update(adress);
 		

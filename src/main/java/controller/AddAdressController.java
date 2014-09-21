@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import service.ServiceAdress;
+
 @Controller
 @RequestMapping("/AddAdress")
 public class AddAdressController {
@@ -44,6 +46,7 @@ public class AddAdressController {
 	    if(result.hasErrors()) {
 	        returnVal = "AddAdress";
 	    } else {
+	    	ServiceAdress.addAdress(adress);
 	        model.addAttribute("adress", adress);
 	    }      
 	    return returnVal;

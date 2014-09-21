@@ -12,19 +12,19 @@ public class ServiceContact {
 		
 	}
 	
-	public void addContacts(Contact contact) {
+	public static void addContacts(Contact contact) {
 		
 		DAOContact.add(contact);
 		
 	}
 	
-	public void deleteContacts(Contact contact) {
+	public static  void deleteContacts(Contact contact) {
 		
 		DAOContact.delete(contact);
 		
 	}
 	
-	public void updateContacts(Contact contact) {
+	public static void updateContacts(Contact contact) {
 		
 		DAOContact.update(contact);
 		

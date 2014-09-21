@@ -18,8 +18,13 @@ public class Adress {
 	
 	public Adress(){
 		
-	}
+	}	
 	
+	@Override
+	public String toString() {
+		return number + " " + street + ", " + postalCode + ", " + city;
+	}
+
 	public int getId() {
 		return id;
 	}

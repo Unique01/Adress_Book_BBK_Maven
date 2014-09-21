@@ -19,6 +19,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 
+import service.ServiceContact;
+
 
 @Controller
 @RequestMapping("/AddContact")
@@ -51,6 +53,7 @@ public class AddContactController {
 	    if(result.hasErrors()) {
 	        returnVal = "AddContact";
 	    } else {
+	    	ServiceContact.addContacts(contact);
 	        model.addAttribute("contact", contact);
 	    }      
 	    return returnVal;

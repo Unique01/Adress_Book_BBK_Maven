@@ -1,6 +1,7 @@
 package dao;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,11 +15,16 @@ public class DAOContact {
 	private static int temp = 0;
 	
 	static {
-		
-		bdd.put(1, new Contact(1,"Adnane","Koumira","ak@gmail.fr", new Date(01/01/1992)));
-		bdd.put(2, new Contact(2,"Vincent","Baulin","vb@gmail.fr", new Date(14/11/1992)));
-		bdd.put(3, new Contact(3,"Julien","Baron","jb@gmail.fr", new Date(27/05/1992)));
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
+		try {			 
+			bdd.put(1, new Contact(1,"Adnane","Koumira","ak@gmail.fr", simpleDateFormat.parse("25/12/1992")));
+			bdd.put(2, new Contact(2,"Vincent","Baulin","vb@gmail.fr", simpleDateFormat.parse("03/07/1990")));
+			bdd.put(3, new Contact(3,"Julien","Baron","jb@gmail.fr", simpleDateFormat.parse("11/06/1992")));
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static Map<Integer, Contact> getAllContacts() {
