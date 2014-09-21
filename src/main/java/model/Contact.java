@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Contact {
 
+	private int id;
 	private String name;
 	private String surname;
 	private String email;
@@ -16,7 +17,8 @@ public class Contact {
 	boolean deleted = false;
 	
 
-	public Contact(String name, String surname, String email, Date birthDate){
+	public Contact(int id, String name, String surname, String email, Date birthDate){
+		this.id=id;
 		this.name = name;
 		this.surname = surname;
 		this.email =email;
@@ -31,6 +33,13 @@ public class Contact {
 		deleted = true;
 	}
 	
+	public int getId(){
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}	
 
 	public String getName() {
 		return name;
@@ -63,7 +72,5 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-			
+		
 }

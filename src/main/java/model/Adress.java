@@ -2,12 +2,14 @@ package model;
 
 public class Adress {
 	
+	private int id;
 	private String number;
 	private String street;
 	private String postalCode;
 	private String city;
 	
-	public Adress(String number, String street, String postalCode, String city){
+	public Adress(int id, String number, String street, String postalCode, String city){
+		this.id=id;
 		this.number = number;
 		this.street = street;
 		this.postalCode = postalCode;
@@ -16,6 +18,14 @@ public class Adress {
 	
 	public Adress(){
 		
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNumber() {
