@@ -24,6 +24,35 @@
  
 		</form:form>
 		
+	<div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form role="form">
+            <div class="form-group">
+              <label class="control-label" for="exampleInputEmail1">Name</label>
+              <input class="form-control" id="exampleInputEmail1" placeholder="Enter name"
+              type="text">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="exampleInputEmail1">Surname</label>
+              <input class="form-control" id="exampleInputEmail1" placeholder="Enter surname"
+              type="text">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="exampleInputEmail1">Email address</label>
+              <input class="form-control" id="exampleInputEmail1"
+              placeholder="Enter email" type="email">
+            </div>
+			<div class="input-group date">
+				<input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+			</div>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-danger">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+		
 		
 	</body>
 </html>
