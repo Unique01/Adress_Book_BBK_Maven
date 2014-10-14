@@ -3,22 +3,22 @@
 
 <html>
 	<head>
-		<title>Création d'un nouveau contact</title>
+		<title>Create new contact</title>
 		<link rel="stylesheet" href="<c:url value="/resources/css/styles.css" />" >
 	</head>
 	<body>
-		<form:form commandName="contact" method="post">
+		<form:form modelAttribute="contact" commandName="contact" method="post">
 	 
-			Nom <form:errors path="name" cssClass="error"/><br />
+			Name <form:errors path="name" cssClass="error"/><br />
 			<form:input path="name"/><br /><br />
 	 
-			Prenom <form:errors path="surname" cssClass="error"/><br />
+			Surname <form:errors path="surname" cssClass="error"/><br />
 			<form:input path="surname"/><br /><br />
 			
 			Email <form:errors path="email" cssClass="error"/><br />
 			<form:input path="email"/><br /><br />
 	 
-			Date de naissance (dd/mm/yyyy) <form:errors path="birthDate" cssClass="error"/><br />
+			Birth Date (dd/mm/yyyy) <form:errors path="birthDate" cssClass="error"/><br />
 			<form:input path="birthDate"/><br /><br />
 	 
 			<input type="submit" value="Valider">

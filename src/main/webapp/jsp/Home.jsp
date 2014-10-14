@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Carnet d'adresse BBK</title>
+		<title>Adress Book BBK</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
@@ -31,25 +31,26 @@
 
 		</script>
 		
+		
 	</head>
 	
 	<body>
 		<br/>
 		
-			<input type="button"  onclick="location.href='/Adress_Book_BBK_Maven/AddContact'" value="Nouveau contact" >
-			<input type="button"  onclick="location.href='/Adress_Book_BBK_Maven/AddAdress'" value="Nouvelle adresse" >
+			<input type="button"  onclick="location.href='/Adress_Book_BBK_Maven/AddContact'" value="New Contact" >
+			<input type="button"  onclick="location.href='/Adress_Book_BBK_Maven/AddAdress'" value="New adress" >
 			
 			<form:form action="" method="GET">
-			<h2 >Contactes<br><br></h2>
-			<table width="70%" style="border: 3px;background: rgb(243, 244, 248);"><tr><td>
+			<h2 >Contacts<br><br></h2>
+			<table class ="homeTable" width="100%" style="border: 3px; background: rgb(243, 244, 248);"><tr><td>
 			    <table id="contactTable" class="display" cellspacing="0" width="100%">
 			        <thead>
 			            <tr>
-			                <th>Nom</th>
-			                <th>Prenom</th>
+			                <th>Name</th>
+			                <th>Surname</th>
 			                <th>Email</th>
-			                <th>Date de naissance</th>
-			                <th>Modifier /Associer des adresses/ Supprimer</th>
+			                <th>Birth date</th>
+			                <th>Modify /Associate adresses/ Delete</th>
 			            </tr>
 			        </thead>     
 			    </table>

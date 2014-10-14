@@ -23,7 +23,7 @@ import com.google.gson.GsonBuilder;
 public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String hello(ModelMap model) {
+	public String initPage(ModelMap model) {
 
 		return "Home";
 

@@ -3,22 +3,22 @@
 
 <html>
 	<head>
-		<title>Création d'une nouvelle adresse</title>
+		<title>Add new adress</title>
 		<link rel="stylesheet" href="<c:url value="/resources/css/styles.css" />" >
 	</head>
 	<body>
 		<form:form commandName="adress" method="post">
 	 
-			Numero <form:errors path="number" cssClass="error"/><br />
+			Phone number <form:errors path="number" cssClass="error"/><br />
 			<form:input path="number"/><br /><br />
 	 
-			Rue <form:errors path="street" cssClass="error"/><br />
+			Street <form:errors path="street" cssClass="error"/><br />
 			<form:input path="street"/><br /><br />
 			
-			Code postal <form:errors path="postalCode" cssClass="error"/><br />
+			Postal Code <form:errors path="postalCode" cssClass="error"/><br />
 			<form:input path="postalCode"/><br /><br />
 	 
-			Ville <form:errors path="city" cssClass="error"/><br />
+			City <form:errors path="city" cssClass="error"/><br />
 			<form:input path="city"/><br /><br />
 	 
 			<input type="submit" value="Valider">
