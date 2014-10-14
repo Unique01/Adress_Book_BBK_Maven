@@ -29,4 +29,10 @@ public class ServiceContact {
 		DAOContact.update(contact);
 		
 	}
+
+	public static Contact getContactById(int id) {
+		
+		return DAOContact.getContactById(id);
+		
+	}
 }

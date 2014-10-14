@@ -24,6 +24,18 @@
 		            { "mData": "surname" },
 		            { "mData": "email" },
 		            { "mData": "birthDate" },
+		            {
+		            	bSortable: false,
+		                mRender: function (data, type, row) { 
+		                	var edit = "<a href='EditContact?id=" + row.id + "'>Edit</a>";
+		                	var associateAdresses = "<a href='associateAdresses?id=" + row.id  + "'>Associate Adresses</a>";
+		                	var del = "<a href='DeleteContact?id=" + row.id  + "' onclick=\"return confirm('Are you sure you want to delete?')\">Delete</a>";
+
+		             		
+		                	return edit + "/" + associateAdresses + "/" + del; 
+		                }
+		        
+                    }
 		        ]
 		    } ); 
 		

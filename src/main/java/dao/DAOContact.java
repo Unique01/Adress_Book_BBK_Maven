@@ -28,7 +28,17 @@ public class DAOContact {
 	}
 	
 	public static Map<Integer, Contact> getAllContacts() {
-		return bdd;
+		Map<Integer, Contact> map = new HashMap<Integer, Contact>();
+
+		for(int j=1; j<i; j++){
+			Contact cont = bdd.get(j);
+			
+			if(!cont.isDeleted()){
+				map.put(j, cont);
+			}
+		}
+
+		return map;
 	}
 	
 	public static void add(Contact contact) {
@@ -45,6 +55,12 @@ public class DAOContact {
 		temp = contact.getId();
 		bdd.remove(temp);
 		bdd.put(temp, contact);	
+	}
+
+	public static Contact getContactById(int id) {
+		
+		return bdd.get(id);
+		
 	}
 
 }

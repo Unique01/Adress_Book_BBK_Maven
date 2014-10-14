@@ -13,10 +13,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -41,6 +39,7 @@ public class AddContactController {
 	    binder.setValidator(validator);
 	}
 	
+    //@RequestParam("id") int id
 	@RequestMapping(method = RequestMethod.GET)
 	public String initForm(ModelMap model) {
 		model.addAttribute("contact", new Contact());

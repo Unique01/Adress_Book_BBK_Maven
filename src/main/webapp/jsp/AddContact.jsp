@@ -4,7 +4,6 @@
 <html>
 	<head>
 		<title>Create new contact</title>
-		<link rel="stylesheet" href="<c:url value="/resources/css/styles.css" />" >
 	</head>
 	<body>
 		<form:form modelAttribute="contact" commandName="contact" method="post">
