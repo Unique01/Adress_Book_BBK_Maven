@@ -24,7 +24,8 @@ public class HomeController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String initPage(ModelMap model) {
-
+        Boolean contactAddedAlert = Boolean.FALSE;
+        model.addAttribute("contactAddedAlert", contactAddedAlert);
 		return "Home";
 
 	}

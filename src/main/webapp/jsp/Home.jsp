@@ -10,8 +10,8 @@
 		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
 		<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
-		<script type="text/javascript">
 		
+		<script type="text/javascript">		
 		$(document).ready(function() {
 		     
 		    $("#contactTable").dataTable( {
@@ -28,10 +28,9 @@
 		            	bSortable: false,
 		                mRender: function (data, type, row) { 
 		                	var edit = "<a href='EditContact?id=" + row.id + "'>Edit</a>";
-		                	var associateAdresses = "<a href='associateAdresses?id=" + row.id  + "'>Associate Adresses</a>";
-		                	var del = "<a href='DeleteContact?id=" + row.id  + "' onclick=\"return confirm('Are you sure you want to delete?')\">Delete</a>";
+		                	var del = "<a href='DeleteContact?id=" + row.id  + "' onclick=\"return confirm('Are you sure you want to delete?')\">Delete</a>";                	
 		             		
-		                	return edit + "/" + associateAdresses + "/" + del; 
+		                	return edit + "/" + del; 
 		                }
 		        
                     }
@@ -39,20 +38,33 @@
 		    } ); 
 		
 		} );
-
+		
 		</script>
 		
 		
 	</head>
 	
-	<body>
-		<br/>
-		
-			<input type="button"  onclick="location.href='/Adress_Book_BBK_Maven/AddContact'" value="New Contact" >
-			<input type="button"  onclick="location.href='/Adress_Book_BBK_Maven/AddAdress'" value="New adress" >
+	<body>		
+			<% if(request.getAttribute("contactAddedAlert")!=null){
+				if((Boolean) request.getAttribute("contactAddedAlert")) { %>
+			<div id = "contactAdded1" class="alert alert-dismissable alert-success">
+				<div id="contactAdded2">
+	            	<strong>Well done!</strong> You successfully add a contact.
+	            </div>
+			</div>
+			<% }} %>
+			
+			<% if(request.getAttribute("contactUpdatedAlert")!=null){
+				if((Boolean) request.getAttribute("contactUpdatedAlert")) { %>
+			<div id = "contactUpdated1" class="alert alert-dismissable alert-success">
+				<div id="contactUpdated2">
+	            	<strong>Well done!</strong> You successfully updated your contact.
+	            </div>
+			</div>
+			<% }} %>
 			
 			<form:form action="" method="GET">
-			<h2 >Contacts<br><br></h2>
+			<h2 id="tableTitle">My list of contacts<br><br></h2>
 			<table class ="homeTable" width="100%" style="border: 3px; background: rgb(243, 244, 248);"><tr><td>
 			    <table id="contactTable" class="display" cellspacing="0" width="100%">
 			        <thead>
@@ -61,12 +73,14 @@
 			                <th>Surname</th>
 			                <th>Email</th>
 			                <th>Birth date</th>
-			                <th>Modify /Associate adresses/ Delete</th>
+			                <th>Modify / Delete</th>
 			            </tr>
 			        </thead>     
 			    </table>
 			    </td></tr></table>
 			</form:form>
-
+		
 	</body>
 </html>
+
+

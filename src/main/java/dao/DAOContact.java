@@ -2,10 +2,13 @@ package dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 import model.Contact;
+import model.Adress;;
 
 
 public class DAOContact {
@@ -18,9 +21,11 @@ public class DAOContact {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
 		try {			 
-			bdd.put(1, new Contact(1,"Adnane","Koumira","ak@gmail.fr", simpleDateFormat.parse("25/12/1992")));
-			bdd.put(2, new Contact(2,"Vincent","Baulin","vb@gmail.fr", simpleDateFormat.parse("03/07/1990")));
-			bdd.put(3, new Contact(3,"Julien","Baron","jb@gmail.fr", simpleDateFormat.parse("11/06/1992")));
+			List<Adress> adressList = new ArrayList<Adress>();
+			adressList.add(new Adress(0, "12", "Général de Gaulle", "92290", "Châtenay-Malabry"));
+			bdd.put(1, new Contact(1,"Adnane","Koumira","ak@gmail.fr", simpleDateFormat.parse("25/12/1992"), adressList));
+			bdd.put(2, new Contact(2,"Vincent","Baulin","vb@gmail.fr", simpleDateFormat.parse("03/07/1990"), adressList));
+			bdd.put(3, new Contact(3,"Julien","Baron","jb@gmail.fr", simpleDateFormat.parse("11/06/1992"), adressList));
 			
 		} catch (ParseException e) {
 			e.printStackTrace();

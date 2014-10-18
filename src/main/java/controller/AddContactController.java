@@ -39,7 +39,6 @@ public class AddContactController {
 	    binder.setValidator(validator);
 	}
 	
-    //@RequestParam("id") int id
 	@RequestMapping(method = RequestMethod.GET)
 	public String initForm(ModelMap model) {
 		model.addAttribute("contact", new Contact());
@@ -55,6 +54,8 @@ public class AddContactController {
 	    } else {
 	    	ServiceContact.addContacts(contact);
 	        model.addAttribute("contact", contact);
+	        Boolean contactAddedAlert = Boolean.TRUE;
+	        model.addAttribute("contactAddedAlert", contactAddedAlert);	        
 	    }      
 	    return returnVal;
 	}
