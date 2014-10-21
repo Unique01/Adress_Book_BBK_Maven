@@ -23,7 +23,10 @@ public class DAOContact {
 		try {			 
 			List<Adress> adressList = new ArrayList<Adress>();
 			adressList.add(new Adress(0, "12", "Général de Gaulle", "92290", "Châtenay-Malabry"));
-			bdd.put(1, new Contact(1,"Adnane","Koumira","ak@gmail.fr", simpleDateFormat.parse("25/12/1992"), adressList));
+			adressList.add(new Adress(0, "15", "Rue de la République", "75007", "Paris"));
+			adressList.add(new Adress(0, "30", "Rue des Fleures", "75005", "Paris"));
+
+			bdd.put(1, new Contact(1,"Adnane","Koumira","ak@gmail.fr", simpleDateFormat.parse("25/12/1992"), adressList));		
 			bdd.put(2, new Contact(2,"Vincent","Baulin","vb@gmail.fr", simpleDateFormat.parse("03/07/1990"), adressList));
 			bdd.put(3, new Contact(3,"Julien","Baron","jb@gmail.fr", simpleDateFormat.parse("11/06/1992"), adressList));
 			

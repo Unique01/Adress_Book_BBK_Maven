@@ -1,14 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<html ng-app="addresBook">
+<html>
 <head>
 <title>Create new contact</title>
-
-<script type="text/javascript" src="./theme/js/angular.min.js"></script>
-<script type="text/javascript" src="./theme/js/script.js"></script>
-<script type="text/javascript" src="./theme/js/ui-bootstrap-tpls-0.6.0.js"></script>
-
 
 <script>
 	$(document).ready(
@@ -60,7 +55,7 @@
 			});
 </script>
 </head>
-<body ng-controller="AddContactController">
+<body>
 
 	<br />
 	<div class="container">
@@ -91,18 +86,8 @@
 						<label class="control-label" for="InputBirthDate">Date
 							(dd/mm/yyyy)</label>
 						<form:errors path="birthDate" cssClass="error" />
-						<div class="input-group">
-							<form:input id="InputBirthDate" class="form-control"
-								path="birthDate" />
-							<span class="input-group-addon"> <i
-								class="glyphicon glyphicon-th"></i>
-							</span>
-							
-						<div class="input-group" class="form-horizontal">
-					        <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" ng-required="true" />
-					        <button class="btn" ng-click="open()"><i class="icon-calendar"></i></button>
-					    </div>
-						</div>
+						<br/>
+						<form:input id="InputBirthDate" class="form-control" path="birthDate" />
 					</div>
 					
 					<fieldset id="AddressFieldset">
