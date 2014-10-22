@@ -27,10 +27,11 @@
 		            {
 		            	bSortable: false,
 		                mRender: function (data, type, row) { 
-		                	var edit = "<a href='EditContact?id=" + row.id + "'>Edit</a>";
-		                	var del = "<a href='DeleteContact?id=" + row.id  + "' onclick=\"return confirm('Are you sure you want to delete?')\">Delete</a>";                	
+		                	var edit = "<a class='glyphicon glyphicon-list-alt' href='EditContact?id=" + row.id + "'></a>";
+		                	var see = "<a class='glyphicon glyphicon-user' href='SeeContact?id=" + row.id + "'></a>";
+		                	var del = "<a class='glyphicon glyphicon-trash' href='DeleteContact?id=" + row.id  + "' onclick=\"return confirm('Are you sure you want to delete this contact?')\"></a>";                	
 		             		
-		                	return edit + "/" + del; 
+		                	return edit + " / " + see + " / "+ del; 
 		                }
 		        
                     }
@@ -73,7 +74,7 @@
 			                <th>Surname</th>
 			                <th>Email</th>
 			                <th>Birth date</th>
-			                <th>Modify / Delete</th>
+			                <th>Modify / See / Delete</th>
 			            </tr>
 			        </thead>     
 			    </table>
