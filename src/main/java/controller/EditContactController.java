@@ -23,8 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import service.ServiceContact;
 
 @Controller
-//@RequestMapping(value = "/EditContact")
 public class EditContactController {
+	
 	
 	@Autowired
 	@Qualifier("ContactValidator")
@@ -47,6 +47,7 @@ public class EditContactController {
 		model.addAttribute("contact", myContact);
 		return "EditContact";	
 	}
+
 	
 	@RequestMapping(value = "/EditContact", method = RequestMethod.POST)
 	public String submitForm(Model model, @Validated Contact contact, BindingResult result) {

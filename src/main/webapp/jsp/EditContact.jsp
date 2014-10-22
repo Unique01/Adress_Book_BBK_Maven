@@ -11,9 +11,7 @@
 				function () {
 					$('#btnAddAddress').click(
 							function addressFieldsGenerator() {	
-							   // $('#InputAdressNumber').attr('path', '${contact.adressList[0].number}')
-
-								
+						
 								var $address = $('#AddressFieldset');
 								var num = $('.clonedAddress').length; // there are 4 children inside each address so the prevCloned address * 4 + original
 								var newNum = new Number(num + 1);
@@ -32,14 +30,26 @@
 	
 								newElem.find('input').each(function() {
 									this.id = this.id + newNum;
-									//this.value = this.value.replace(/[0-9]/g, newNum);
-								});
+								});	
 								
-								newElem.find("input[id='InputAdressStreet" + newNum + "']").attr('value', 'fff');
-								var aa = "${contact.adressList[1].postalCode}";
-								newElem.find("input[id='InputAdressPostal" + newNum + "']").attr('value', aa);
-								newElem.find("input[id='InputAdressCity" + newNum + "']").attr('value', 'toto');
-
+								newElem.find('legend').each(function() {
+									this.id = this.id + newNum;
+								});			
+								
+								
+								if (newNum = 1) {
+									newElem.find("input[id='InputAdressNumber" + newNum + "']").attr('value', "${contact.adressList[1].number}");
+									newElem.find("input[id='InputAdressStreet" + newNum + "']").attr('value', "${contact.adressList[1].street}");
+									newElem.find("input[id='InputAdressPostal" + newNum + "']").attr('value', "${contact.adressList[1].postalCode}");
+									newElem.find("input[id='InputAdressCity" + newNum + "']").attr('value', "${contact.adressList[1].city}");								
+								}
+								if (newNum = 2) {
+									newElem.find("input[id='InputAdressNumber" + newNum + "']").attr('value', "${contact.adressList[2].number}");
+									newElem.find("input[id='InputAdressStreet" + newNum + "']").attr('value', "${contact.adressList[2].street}");
+									newElem.find("input[id='InputAdressPostal" + newNum + "']").attr('value', "${contact.adressList[2].postalCode}");
+									newElem.find("input[id='InputAdressCity" + newNum + "']").attr('value', "${contact.adressList[2].city}");
+									
+								}
 	
 								if (num > 0) {
 									$('.clonedAddress:last').after(newElem);
@@ -49,10 +59,17 @@
 	
 								$('#btnDelAddress').removeAttr('disabled');
 	
-								if (newNum == 2)
+								if (num == 1)
 									$('#btnAddAddress').attr('disabled', 'disabled');
+								
+								$("#AddressLegend1").text("Delivery address");
+								$("#AddressLegend2").text("Delivery address");
+								$('#btnAddAddress2').hide();
+								$('#btnDelAddress3').hide();
+								$('#btnAddAddress4').hide();
+								$('#btnDelAddress5').hide();
 							});
-					$('#btnDelAddress').click(function() {
+					$('#btnDelAddress').click(function deleteAdressField() {
 						$('.clonedAddress:last').remove();
 						$('#btnAddAddress').removeAttr('disabled');
 						if ($('.clonedAddress').length == 0) {
@@ -62,17 +79,15 @@
 					$('#btnDelAddress').attr('disabled', 'disabled');
 				});
 		</script>
+
 	</head>
-	<body>
-		<c:forEach items="${contact.adressList}" var="element"> 
-test
-		</c:forEach>
-			
+	<body>		
 		<br />
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<form:form modelAttribute="contact" commandName="contact"
+					<h2 class="formTitle">Edit the selected Contact</h2>
+					<form:form id ="editContactForm" modelAttribute="contact" commandName="contact"
 						method="post">
 						<div class="form-group">
 							<label class="control-label" for="InputName">Name</label>
@@ -102,7 +117,7 @@ test
 						</div>
 						
 						<fieldset id="AddressFieldset">
-	          				<legend>Address</legend>
+	          				<legend id="AddressLegend" class="AddressTitle">Billing address</legend>
 							<div id="AddressFields" class="form-group">
 								<div id="AddressUpperDiv" class="col-md-12">
 									<div class="col-md-3">
@@ -138,15 +153,15 @@ test
 							
 	
 							<div class="text-right" style="padding-right:10px;">
-								<button type="button" id="btnAddAddress" class="btn btn-success">Add secondary address</button>
-								<button type="button" id="btnDelAddress" class="btn btn-danger">Cancel secondary address</button>
+								<button type="button" id="btnAddAddress" class="btn btn-success">Add delivery address</button>
+								<button type="button" id="btnDelAddress" class="btn btn-danger">Cancel delivery address</button>
 							</div>	
 							
 						</fieldset>	
 							
 						<br/>
 						<div class="text-right">
-							<button type="submit" class="btn btn-success">Update</button>
+							<button type="submit" class="btn btn-success" >Update</button>
 							<a href="./"><button type="button" class="btn btn-danger" >Cancel</button></a>		
 						</div>										
 					</form:form>
@@ -154,6 +169,12 @@ test
 				</div>
 			</div>
 		</div>
+		
+		<c:forEach items="${contact.adressList}" begin="1" var="element"> 
+			<script>
+				$(document).ready( function( ) { $('#btnAddAddress').click( );} );
+			</script>
+		</c:forEach>
 			
 	</body>
 </html>

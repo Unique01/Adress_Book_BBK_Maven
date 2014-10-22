@@ -28,10 +28,11 @@
 
 							newElem.find('input').each(function() {
 								this.id = this.id + newNum;
-								this.name = this.name + newNum;
-								this.path = "this.path.text(function(i,txt) {return txt.replace(/\d+/," + newNum + "); })";		//"${adressList[" + newNum + "].city}";
-								this.error = "this.errors.text(function(i,txt) {return txt.replace(/\d+/," + newNum + "); })";
 							});
+							
+							newElem.find('legend').each(function() {
+								this.id = this.id + newNum;
+							});		
 
 							if (num > 0) {
 								$('.clonedAddress:last').after(newElem);
@@ -43,6 +44,13 @@
 
 							if (newNum == 2)
 								$('#btnAddAddress').attr('disabled', 'disabled');
+							
+							$("#AddressLegend1").text("Delivery address");
+							$("#AddressLegend2").text("Delivery address");
+							$('#btnAddAddress2').hide();
+							$('#btnDelAddress3').hide();
+							$('#btnAddAddress4').hide();
+							$('#btnDelAddress5').hide();
 						});
 				$('#btnDelAddress').click(function() {
 					$('.clonedAddress:last').remove();
@@ -61,6 +69,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+			<h2 class="formTitle">Add a new Contact</h2>
 				<form:form modelAttribute="contact" commandName="contact"
 					method="post">
 					<div class="form-group">
@@ -91,7 +100,7 @@
 					</div>
 					
 					<fieldset id="AddressFieldset">
-          				<legend>Address</legend>
+	          			<legend id="AddressLegend" class="AddressTitle">Billing address</legend>
 						<div id="AddressFields" class="form-group">
 							<div id="AddressUpperDiv" class="col-md-12">
 								<div class="col-md-3">
