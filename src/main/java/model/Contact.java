@@ -15,7 +15,7 @@ public class Contact {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date birthDate;
 	
-	boolean deleted = false;
+	private boolean deleted = false;
 	
 	private List<Adress> adressList;
 	
